@@ -1,0 +1,9 @@
+server.port = 9091
+spring.cloud.bus.enabled = false
+ureport.fileStoreDir = /app/templates
+report.pdf.path = /tmp/report
+mysql.db-name = hcf_mdata_sit
+ureport.debug = false
+ureport.disableFileProvider = false
+ureport.disableHttpSessionReportCache = false
+hcf.app.url=http://47.101.140.48:10021

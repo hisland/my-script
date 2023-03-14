@@ -1,0 +1,21 @@
+# 会计引擎服务端口
+server.port = 9101
+# 数据库名称
+mysql.db-name = hcf_haep_sit
+mysql.db-name.mdata = hcf_mdata_sit
+mysql.db-name.expense = hcf_expense_sit
+mysql.db-name.workflow = hcf_workflow_sit
+mysql.db-name.workbench = hcf_workbench_sit
+mysql.db-name.budget = hcf_budget_sit
+spring.dbType = mysql
+# 监听各个模块的消息开关
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.base.stream.init-input.enabled = true
+hcf.application.workflow.stream.input.enabled = true
+hcf.application.ledger.stream.init-input.enabled = true
+# hcf.haep.init.data.update.enabled=true
+# hcf.ledger.sync.input.ledger.enabled=true
+# hcf.ledger.sync.input.period.enabled=true
+# hcf.ledger.sync.input.value.set.enabled=true
+# hcf.ledger.sync.input.value.enabled=true
+# hcf.ledger.sync.input.value.hierarchy.enabled=true

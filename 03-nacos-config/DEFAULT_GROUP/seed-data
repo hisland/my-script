@@ -1,0 +1,4 @@
+server.port = 9080
+mysql.db-name = hcf_base_sit
+#LIQUIBASE_RUN_APPS=base,mdata,expense,workflow,workbench,contract,haep,peripheral,travel,mobile,budget
+LIQUIBASE_CHANGE_LOG_FILE=tzbank/db/liquibase/tzbankdb.xml

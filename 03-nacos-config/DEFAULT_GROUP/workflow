@@ -1,0 +1,12 @@
+server.port = 9096
+hcf.async.enable = true
+hcf.hcf.hcf.async.max-pool-size = 250
+hcf.hcf.async.queue-capacity = 8
+hcf.async.core-pool-size = 8
+hcf.async.keep-alive-seconds = 30
+mysql.db-name = hcf_workflow_sit
+hcf.application.workflow.stream.output.enabled = true
+hcf.application.base.stream.error-output.enabled = true
+hcf.tenant.interceptor.enabled = true
+hcf.application.workflow.stream.pending-task-output.enabled=true
+hcf.application.peripheral.stream.message.out.enabled=true

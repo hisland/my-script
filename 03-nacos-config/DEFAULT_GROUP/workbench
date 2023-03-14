@@ -1,0 +1,19 @@
+mysql.db-name = hcf_workbench_sit
+spring.cloud.bus.enabled = false
+server.port = 9100
+hcf.async.enable = true
+hcf.async.max-pool-size = 200
+hcf.async.queue-capacity = 1024
+hcf.async.core-pool-size = 16
+
+hcf.application.mdata.stream.input.enabled = true
+hcf.application.base.stream.init-input.enabled=true
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.workflow.stream.external-message.enabled = true
+hcf.application.workflow.stream.input.enabled = true
+
+hcf.job.addresses = http://job:9093
+hcf.job.app-name = workbench
+hcf.job.log-path = ${user.home}/job/log/
+hcf.job.enabled = true
+hcf.job.port = 9994

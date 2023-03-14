@@ -1,0 +1,7 @@
+server.port = 9210
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.base.stream.init-input.enabled = true
+hcf.application.workflow.stream.input.enabled = true
+hcf.application.stream.budget.check.input.enabled = true
+polars.data-auth.enabled = true
+mysql.db-name = hcf_travel_sit

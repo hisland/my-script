@@ -1,0 +1,94 @@
+hcf.gateway.enabled-implement-auth = false
+hcf.gateway.check-api-enabled = false
+hcf.gateway.not-check-api-apps[0] = fileView
+hcf.gateway.not-check-api-apps[1] = ws
+hcf.gateway.not-check-api-apps[2] = ureport
+hcf.gateway.not-check-api-apps[3] = tx-manager
+hcf.gateway.not-check-api-apps[4] = file
+hcf.gateway.front.url = http://web:80
+hcf.gateway.front.suffix=.js,.js.map,.css,.less,.png,.jpg,.ico,.txt,.html,.svg
+hcf.gateway.front.static-suffix = bmp,pcx,tif,gif,jpg,jpeg,tga,exif,fpx,svg,psd,png,raw,ico,css,js,htm
+hcf.gateway.front.router-path-prefix = /web/
+
+
+hcf.gateway.security.enabled = false
+hcf.gateway.security.sql-keyword = TABLE|TABLESPACE|PROCEDURE|FUNCTION|TRIGGER|KEY|VIEW|MATERIALIZED VIEW|LIBRARY|DATABASE LINK|DBLINK|INDEX|CONSTRAINT|TRIGGER|USER|SCHEMA|DATABASE|PLUGGABLE DATABASE|BUCKET|CLUSTER|COMMENT|SYNONYM|TYPE|JAVA|SESSION|ROLE|PACKAGE|PACKAGE BODY|OPERATOR|SEQUENCE|RESTORE POINT|PFILE|CLASS|CURSOR|OBJECT|RULE|USER|DATASET|DATASTORE|COLUMN|FIELD
+hcf.gateway.security.sql-regex[0] = (\b+|"|^)\s*(OR|AND|&&|\|\|)\s+(true|false)\s*
+hcf.gateway.security.sql-regex[1] = (\b+|"|^)\s*(OR|AND|&&|\|\|)\s+([\(\w\d\u4e00-\u9fa5',\)]*)\s*(\=|\!=|\<\>)\s*([\(\w\d\u4e00-\u9fa5',\)]*)\s*
+hcf.gateway.security.sql-regex[2] = (\b+|"|^)\s*(OR|AND|&&|\|\|)\s+(equals|not equals)\s+(true|false)\s*
+hcf.gateway.security.sql-regex[3] = \b+(union|where|limit|group by)\b+\s+\w+
+hcf.gateway.security.sql-regex[4] = \b+SELECT\b+\s+\w+
+hcf.gateway.security.sql-regex[5] = \b+INSERT\b+\s+.*\b+INTO\b+\s+\w+
+hcf.gateway.security.sql-regex[6] = \b+UPDATE\b+\s+.\w+
+hcf.gateway.security.sql-regex[7] = \b+DELETE\b+\s+.*\b+FROM\b+\s+\w+
+hcf.gateway.security.sql-regex[8] = \b+UPSERT\b+\s+\w+
+hcf.gateway.security.sql-regex[9] = \b+SAVEPOINT\b+\s+\w+
+hcf.gateway.security.sql-regex[10] = \b+CALL\b+\s+\w+
+hcf.gateway.security.sql-regex[11] = \b+ROLLBACK\b+\s+\w+
+hcf.gateway.security.sql-regex[12] = \b+KILL\b+\s+\w+
+hcf.gateway.security.sql-regex[13] = \b+DROP\b+\s+\w+
+hcf.gateway.security.sql-regex[14] = \b+CREATE\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[15] = \b+ALTER\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[16] = \b+TRUNCATE\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[17] = \b+LOCK\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[18] = \b+UNLOCK\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[19] = \b+RELEASE\b+\s*([SQL_KEYWORD_PATTERN])\b+\s+\w+
+hcf.gateway.security.sql-regex[20] = \b+DESC\b+\w*\s+\w+
+hcf.gateway.security.sql-regex[21] = \b+DESCRIBE\b+\w*\s+\w+
+hcf.gateway.security.sql-regex[22] = (=|\"|[\w+\u4e00-\u9fa5']\s+)\s*(-){2,}
+hcf.gateway.security.sql-replace = ;
+
+
+logging.file = logs/api-gateway.log
+logging.pattern.file = %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx
+logging.level.default = info
+logging.level.com.hand = debug
+
+server.port = 9081
+server.undertow.direct-buffers = true
+server.undertow.buffer-size = 1024
+spring.codec.max-in-memory-size = 20MB
+
+eureka.instance.preferIpAddress = true
+eureka.instance.hostname = localhost
+eureka.instance.leaseRenewalIntervalInSeconds = 10
+eureka.instance.leaseExpirationDurationInSeconds = 30
+eureka.instance.instance-id = ${spring.application.name}:${spring.application.instance_id:${random.value}}
+eureka.client.serviceUrl.defaultZone = ${EUREKA_DEFAULT_ZONE:http://admin:admin@registerPeer1:9902/eureka,http://admin:admin@registerPeer2:9902/eureka}
+eureka.client.registryFetchIntervalSeconds = 10
+
+spring.cloud.gateway.discovery.locator.enabled = true
+spring.cloud.gateway.discovery.locator.lower-case-service-id = true
+
+
+spring.cloud.gateway.routes[0].id = app
+spring.cloud.gateway.routes[0].uri = http://app-url:8080
+spring.cloud.gateway.routes[0].predicates[0] = Path=/hmap/**
+spring.cloud.gateway.routes[0].filters[0] = RewritePath=/hmap/(?<segment>.*), /core/$\{segment}
+
+spring.cloud.gateway.routes[1].id = qiye-weixin
+spring.cloud.gateway.routes[1].uri = https://qyapi.weixin.qq.com/cgi-bin
+spring.cloud.gateway.routes[1].predicates[0] = Path=/cgi-bin/**
+spring.cloud.gateway.routes[2].id = fileView
+spring.cloud.gateway.routes[2].uri = https://rzh-remote-ack-view.oss-cn-shanghai-internal.aliyuncs.com
+spring.cloud.gateway.routes[2].predicates[0] = Path=/view/**
+spring.cloud.gateway.routes[2].filters[0] = RewritePath=/view/(?<segment>.*),/$\{segment}
+spring.cloud.gateway.routes[3].id = tsp
+spring.cloud.gateway.routes[3].predicates[0] = Path=/api/tsp/**
+spring.cloud.gateway.routes[3].uri = lb://tsp
+spring.cloud.gateway.routes[4].id=boot-admin
+spring.cloud.gateway.routes[4].predicates[0]=Path=/boot/**
+spring.cloud.gateway.routes[4].uri=lb://base
+
+management.health.sentinel.enabled = false
+management.health.redis.enabled = false
+csp.sentinel.app.type = 1
+spring.cloud.sentinel.eager = false
+spring.cloud.circuitbreaker.sentinel.enabled = false
+spring.cloud.sentinel.filter.enabled = false
+spring.cloud.sentinel.enabled = false
+jasypt.encryptor.password = ${JASYPT_ENCRYPTOR_PASSWORD:hcf112358}
+spring.redis.host = redis-single.redis
+spring.redis.port = 6379
+# spring.redis.password = Taizhouyinhang#112358
+hcf.gateway.enabled-report-designer=true

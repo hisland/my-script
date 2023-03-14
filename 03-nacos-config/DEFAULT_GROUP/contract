@@ -1,0 +1,4 @@
+mysql.db-name = hcf_contract_sit
+server.port = 9087
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.workflow.stream.input.enabled = true

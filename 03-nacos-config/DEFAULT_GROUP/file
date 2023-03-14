@@ -1,0 +1,19 @@
+server.port = 9068
+mysql.db-name = hcf_base_sit
+hcf.file.ofd.local = disabled
+hcf.file.ofd.saas = disabled
+#hcf.file.ofd.convertAgent=http://foxit-convert:8090/gsdk-service
+#附件支持对象存储配置
+hcf.file.file-object.type = minio
+hcf.file.mode = OBJECT
+hcf.file.conversionType = PDF
+hcf.file.fileObject.url = http://192.168.46.200:9000/
+hcf.file.fileObject.password = Hand1234
+hcf.file.fileObject.username = admin
+# hcf.file.fileObject.url = https://oss-cn-shanghai-internal.aliyuncs.com
+# hcf.file.fileObject.username = LTAI5tJCfaDUsw1RM1Lhwy4a
+# hcf.file.fileObject.password = htCTTh72NFDgm34neRlFqQjCOtEv4U
+hcf.file.upload-view-enabled = true
+hcf.file.fileObject.view-file-bucket = view
+hcf.file.path = ${user.home}/fileView
+logging.file.name = log/log.log

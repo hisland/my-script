@@ -1,0 +1,15 @@
+server.port = 9067
+mysql.db-name = hcf_mobile_sit
+jasypt.encryptor.password = hcf112358
+hcf.async.enable = true
+hcf.hcf.async.max-pool-size = 250
+hcf.async.queue-capacity = 8
+hcf.async.core-pool-size = 8
+hcf.async.keep-alive-seconds = 30
+
+spring.cloud.stream.bindings.template_message_input.destination = templateMessageExchange
+spring.cloud.stream.bindings.template_message_input.group = mobile
+spring.cloud.stream.bindings.template_message_input.content-type = text/plain
+
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.mdata.stream.input.enabled = true

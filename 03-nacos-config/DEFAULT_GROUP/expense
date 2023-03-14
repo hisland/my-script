@@ -1,0 +1,15 @@
+spring.datasource.maximum-pool-size = 50
+spring.datasource.minimum-idle = 10
+server.port = 9095
+mysql.db-name = hcf_expense_sit
+mysql.db-name.workflow = hcf_workflow_sit
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.base.stream.init-input.enabled = true
+hcf.application.workflow.stream.input.enabled = true
+hcf.application.stream.budget.check.input.enabled = true
+polars.data-auth.enabled = true
+hcf.job.addresses = http://job:9093
+hcf.job.app-name = expense
+hcf.job.log-path = ${user.home}/job/log/
+hcf.job.enabled = true
+hcf.job.port = 9992

@@ -1,0 +1,12 @@
+server.port = 9098
+mysql.db-name = hcf_mdata_sit
+hcf.application.mdata.stream.output.enabled = true
+hcf.application.base.stream.error-output.enabled = true
+hcf.application.base.stream.init-input.enabled = true
+spring.cloud.bus.enabled = false
+hcf.application.workflow.stream.input.enabled = true
+hcf.job.addresses = http://job:9093
+hcf.job.app-name = mdata
+hcf.job.log-path = ${user.home}/job/log/
+hcf.job.enabled = true
+hcf.job.port = 9995

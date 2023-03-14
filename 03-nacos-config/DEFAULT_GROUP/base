@@ -1,0 +1,9 @@
+server.port = 9083
+mysql.db-name = hcf_base_sit
+hcf.application.base.stream.enabled = true
+hcf.application.base.stream.init-output.enabled = true
+hcf.application.base.stream.error-input.enabled = true
+hcf.tenant.interceptor.enabled = false
+#feign.circuitbreaker.enabled=true
+#hystrix.command.default.execution.timeout.enabled=true
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=10000

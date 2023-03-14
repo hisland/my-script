@@ -1,0 +1,10 @@
+server.port = 9082
+mysql.db-name = hcf_base_sit
+spring.cloud.bus.enabled = false
+management.health.mail.enabled = false
+management.health.rabbit.enabled = false
+management.health.elasticsearch.enabled = false
+feign.httpclient.enabled = false
+feign.okhttp.enable = true
+hcf.tenant.interceptor.enabled = false
+hcf.clear.redis.token.enabled=true
