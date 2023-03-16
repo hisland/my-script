@@ -13,3 +13,5 @@ helm template rancher ./rancher/rancher-2.5.15.tgz \
 
 kubectl -n cattle-system apply -R -f ./rancher/rancher/
 kubectl -n cattle-system apply -f ./rancher/rancher-host.yaml
+
+kubectl get all -n cattle-system

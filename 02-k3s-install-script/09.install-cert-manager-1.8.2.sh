@@ -11,3 +11,5 @@ helm template cert-manager ./cert-manager/cert-manager-v1.8.2.tgz \
 
 kubectl apply --validate=false -f ./cert-manager/cert-manager.crds.yaml
 kubectl apply -R -f ./cert-manager/cert-manager
+
+kubectl get pods -n cert-manager
