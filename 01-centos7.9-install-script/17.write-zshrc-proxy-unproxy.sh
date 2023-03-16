@@ -1,3 +1,6 @@
+#!/bin/bash
+
+cat >> ~/.zshrc <<DOC
 
 function proxy(){
   export {HTTP,HTTPS,FTP}_PROXY=http://192.168.10.105:7890
@@ -13,3 +16,4 @@ function unproxy(){
   unset all_proxy
 }
 
+DOC
